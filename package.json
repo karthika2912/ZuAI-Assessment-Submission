@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "export": "next export",
     "dev": "concurrently \"npm run json-server\" \"next dev\"",
     "json-server": "json-server --watch db.json --port 4000",
     "build": "next build",
