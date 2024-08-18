@@ -1,0 +1,116 @@
+{
+ "coursework":[],
+ "evaluation":[],
+  "explore_coursework": [
+    {
+      "title": "Designing Effective Information Architecture for User-Centered Websites",
+      "subject": "English",
+      "words": 1234,
+      "overall_score": 12,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "20 min read",
+      "type": 1
+    },
+    {
+      "title": "The Role of Information Architecture in Enhancing User Experience",
+      "subject": "English",
+      "words": 1234,
+      "overall_score": 12,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "20 min read",
+      "type": 1
+    },
+    {
+      "title": "Creating Scalable Information Architectures for Complex Systems",
+      "subject": "Technology",
+      "words": 2234,
+      "overall_score": 15,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "10 min read",
+      "type": 1
+    },
+    {
+      "title": "Information Architecture Best Practices for Content-Rich Websites",
+      "subject": "English",
+      "words": 2134,
+      "overall_score": 9,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "12 min read",
+      "type": "IA Example"
+    },
+    {
+      "title": "Structuring Digital Products: A Guide to Information Architecture",
+      "subject": "English",
+      "words": 2134,
+      "overall_score": 9,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "12 min read",
+      "type": 2
+    },
+    {
+      "title": "From Chaos to Clarity: Organizing Content with Information Architecture",
+      "subject": "Information",
+      "words": 2334,
+      "overall_score": 13,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "18 min read",
+      "type": 2
+    },
+    {
+      "title": "The Intersection of UX Design and Information Architecture",
+      "subject": "English",
+      "words": 2134,
+      "overall_score": 9,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "12 min read",
+      "type": "IO Example"
+    },
+    {
+      "title": "Information Architecture Strategies for Responsive Web Design",
+      "subject": "Information",
+      "words": 2334,
+      "overall_score": 13,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "18 min read",
+      "type": 2
+    },
+    {
+      "title": "Information Architecture Best Practices for Content-Rich Websites",
+      "subject": "English",
+      "words": 2134,
+      "overall_score": 9,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "12 min read",
+      "type": 3
+    },
+    {
+      "title": "Structuring Digital Products: A Guide to Information Architecture",
+      "subject": "English",
+      "words": 2134,
+      "overall_score": 9,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "12 min read",
+      "type": 3
+    }
+  ],
+  "mycourse_work": [
+    {
+      "title": "Designing Effective Information Architecture for User-Centered Websites",
+      "subject": "English",
+      "words": 1234,
+      "overall_score": 12,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "20 min read",
+      "type": 4
+    },
+    {
+      "title": "The Role of Information Architecture in Enhancing User Experience",
+      "subject": "English",
+      "words": 1234,
+      "overall_score": 12,
+      "description": "Role of Information Architecture in Enhancing User Experience",
+      "time": "20 min read",
+      "type": 4
+    }
+  ]
+}
