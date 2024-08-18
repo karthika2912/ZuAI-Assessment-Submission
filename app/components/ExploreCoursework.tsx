@@ -8,10 +8,11 @@ const ExploreCoursework = () => {
   const [selected,setSelected] = useState(0)
   const [data, setData] = useState<any>([]) 
   const [filteredData, setFilteredData] = useState<any>([]) 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   
   useEffect(() => {
     const  fetchData = async () => {
-        const response = await fetch('http://localhost:4000/explore_coursework')
+        const response = await fetch(API_URL+'/explore_coursework')
         const res = await response.json()
         setData(res)
         setFilteredData(res)

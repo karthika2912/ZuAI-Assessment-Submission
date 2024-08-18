@@ -1,23 +1,20 @@
-import create from 'zustand'
+import create from 'zustand';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const useStore = create((set) => ({
     fileData: null,
-    courseData:null,
+    courseData: null,
 
     setFileData: (fileData) => {
-        let storedFileData = JSON.parse(localStorage.getItem('fileData'))
-        if (!Array.isArray(storedFileData)) {
-            console.error('Stored filedata is not an array, initializing as empty array.');
-            storedFileData = [];
-        }
-        
+        let storedFileData = JSON.parse(localStorage.getItem('fileData')) || [];
         storedFileData.push(fileData);
         localStorage.setItem('fileData', JSON.stringify(storedFileData));
         set({ fileData: storedFileData });
     },
 
-    deleteFileData : (uploadedDate) => {
-        let storedFileData = JSON.parse(localStorage.getItem('fileData'));
+    deleteFileData: (uploadedDate) => {
+        let storedFileData = JSON.parse(localStorage.getItem('fileData')) || [];
         storedFileData = storedFileData.filter((item) => item.uploadDate !== uploadedDate);
         localStorage.setItem('fileData', JSON.stringify(storedFileData));
         set({ fileData: storedFileData });
@@ -25,15 +22,11 @@ export const useStore = create((set) => ({
 
     setCourseData: async (courseData) => {
         try {
-           
-            let storedCoursework = JSON.parse(localStorage.getItem('courseData'));           
-            if (!Array.isArray(storedCoursework)) {
-                console.error('Stored coursework is not an array, initializing as empty array.');
-                storedCoursework = [];
-            }
+            let storedCoursework = JSON.parse(localStorage.getItem('courseData')) || [];
             storedCoursework.push(courseData);
             localStorage.setItem('courseData', JSON.stringify(storedCoursework));
-            const response = await fetch('http://localhost:4000/coursework', {
+
+            const response = await fetch(`${API_URL}/coursework`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,50 +46,51 @@ export const useStore = create((set) => ({
             const criteriaB = Math.floor(Math.random() * (remainingPoints + 1)) + minPoints;
             const criteriaC = remainingPoints - (criteriaB - minPoints) + minPoints;
             const evaluationData = {
-                coursework_id : newCoursework,
-                title:newCoursework.title,
-                subject:newCoursework.subject,
-                time : "10 min read",
-                overall_score : overallScore,
+                coursework_id: newCoursework,
+                title: newCoursework.title,
+                subject: newCoursework.subject,
+                time: "10 min read",
+                overall_score: overallScore,
                 criteriaA_score: criteriaA,
                 criteriaB_score: criteriaB,
                 criteriaC_score: criteriaC,
                 evaluationDate: Date.now(),
-                words: Math.floor(Math.random()*3000+1000),
-                type:Math.floor(Math.random()*4+1),
-                description:"The essay describes the how can the things..."
-                
-            }
+                words: Math.floor(Math.random() * 3000 + 1000),
+                type: Math.floor(Math.random() * 4 + 1),
+                description: "The essay describes the how can the things...",
+            };
 
-            const evaluationResponse = await fetch('http://localhost:4000/evaluation', {
+            await fetch(`${API_URL}/evaluation`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(evaluationData),
-            })
-            
+            });
+
         } catch (error) {
             console.error('Error in setCourseData:', error);
         }
     },
-    loadStoreData : () => {
+
+    loadStoreData: () => {
         const fileData = JSON.parse(localStorage.getItem('uploadedFile'));
         const courseData = JSON.parse(localStorage.getItem('courseData'));
-        set({fileData: fileData,courseData: courseData})
+        set({ fileData: fileData, courseData: courseData });
     },
 
-    loadEvaluationData : async () =>{
-
-        const response = await fetch('http://localhost:4000/evaluation', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }, 
-        })
-        const evaluationData = response.json()
-        set({evaluationData:evaluationData})
+    loadEvaluationData: async () => {
+        try {
+            const response = await fetch(`${API_URL}/evaluation`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const evaluationData = await response.json();
+            set({ evaluationData: evaluationData });
+        } catch (error) {
+            console.error('Error in loadEvaluationData:', error);
+        }
     }
-
-    
-}))
+}));

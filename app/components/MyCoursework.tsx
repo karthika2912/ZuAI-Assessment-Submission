@@ -9,7 +9,8 @@ const MyCoursework = () => {
   const [data, setData] = useState<any>()
   useEffect(() => {
     const  fetchData = async () => {
-        const response = await fetch('http://localhost:4000/evaluation')
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
+        const response = await fetch(API_URL+'/evaluation')
         const res = await response.json()
 
         setData(res)
