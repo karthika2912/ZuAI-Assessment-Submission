@@ -6,8 +6,10 @@ import Clock from '../images/clock.svg'
 import Word from '../images/words.svg'
 import Rating from '../images/rating.svg'
 import Language from '../images/language.svg'
-
-const Card = ({data}) => {
+interface CardProps {
+    data:any;
+  }
+const Card:React.FC<CardProps>  = ({data}) => {
     
   return (
     <>

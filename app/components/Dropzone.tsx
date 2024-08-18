@@ -11,12 +11,16 @@ interface DropzoneProps {
  
   resetFile: boolean;
 }
+interface FileData {
+  name: string;
+  size: number;
+}
 
 const Dropzone: React.FC<DropzoneProps> = ({ resetFile }) => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<FileData | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const { toast } = useToast();
   const setFileData = useStore((state) => state.setFileData);
   const deleteFileData = useStore((state) => state.deleteFileData);
@@ -97,9 +101,11 @@ const Dropzone: React.FC<DropzoneProps> = ({ resetFile }) => {
   });
 
   const handleButtonClick = () => {
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
-
+  
   const removeFile = () => {
     deleteFileData(currentFile.uploadDate)
     setUploadProgress(0); // Reset progress when file is removed
